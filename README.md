@@ -6,5 +6,5 @@
     <li>Create venv</li>
     <li>Install requirements</li>
     <li>Run <b>sudo docker-compose up</b></li>
-    <li>Open http://localhost:5000/*number*, where number is N in Fibonacci's sequence</li>
+    <li>Open http://localhost:5000/<b>number</b>, where number is N in Fibonacci's sequence</li>
 </ol>
