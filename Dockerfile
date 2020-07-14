@@ -1,14 +1,10 @@
-FROM python:3.7.6
-
-ENV PORT 8081
-
-COPY ./requirements.txt /app/requirements.txt
-
-COPY ./app/app.py /app/app.py
-
-WORKDIR /app
-
+FROM python:3.7-alpine
+WORKDIR ./app
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-
-ENTRYPOINT [ "python" ]
-CMD [ "app.py" ]
+COPY . .
+EXPOSE 5000
+CMD ["flask", "run"]
